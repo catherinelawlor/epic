@@ -13,15 +13,17 @@ background-position: center;
 background-repeat: no-repeat;
 
 display: flex;
-justify-content: center;
+flex-direction: column;
+justify-content: flex-end;
 align-items: center;
+padding-bottom: 40px;
 }
 
 
 
 @media (max-width: 600px) {
-    .landing h1 {
-        display: none;
+    .landing {
+        background-image: url("wallpaper-mobile.jpg");
     }
 }
 
@@ -29,10 +31,4 @@ h1 {
     font-size: 10vw;
     color: white;
     text-shadow: 0 0 20px black;
-}
-
-@media (max-width: 600px) {
-    .landing h1 {
-        display: none !important;
-    }
 }
