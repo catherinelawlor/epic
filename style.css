@@ -21,6 +21,9 @@ align-items: center;
     .landing {
         background-image: url("wallpaper-mobile.jpg");
     }
+}
+
+@media (max-width: 600px) {
     .landing h1 {
         display: none;
     }
