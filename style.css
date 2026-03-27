@@ -21,6 +21,9 @@ align-items: center;
     .landing {
         background-image: url("wallpaper-mobile.jpg");
     }
+    .landing h1 {
+        display: none;
+    }
 }
 
 h1 {
