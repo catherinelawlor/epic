@@ -69,28 +69,12 @@ h1 {
 }
 
 .video-left {
-    width: 50%;
+    Flex: 1;
+    margin-right: 40px;
 }
 
 .video-right {
-    width: 40%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-/* CHARACTER CARDS */
-.character-card {
-    background: rgba(0,0,0,0.4);
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    backdrop-filter: blur(4px);
-}
-
-.character-card img {
-    width: 100%;
-    border-radius: 8px;
+    flex:1;
 }
 
 /* VIDEO CONTAINER */
@@ -111,6 +95,18 @@ h1 {
     border-radius: 12px;
 }
 
+/* CHARACTER CARDS */
+.character-card {
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    backdrop-filter: blur(4px);
+}
+
+
+
+
 /* NEXT BUTTON */
 .next-btn {
     display: inline-block;
@@ -127,6 +123,17 @@ h1 {
 .next-btn:hover {
     background: #ff55ff;
     transform: scale(1.05);
+}
+
+.character-card img {
+    width: 220px;
+    height: 300px;
+    object-fit: contain;
+    background: rgba(0,0,0,0.3);
+    padding: 10px;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
 }
 
 /* LANDING PAGE */
