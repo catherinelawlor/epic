@@ -9,6 +9,7 @@
 
 <body class="video-page">
 
+    <!-- Navigation -->
     <nav class="main-nav">
         <a href="index.html" class="nav-logo">EPIC</a>
 
@@ -19,41 +20,56 @@
         </div>
     </nav>
 
+    <!-- Main Layout -->
     <div class="video-layout">
 
-    <div class="video-left">
-        <h2>Act I</h2>
-        <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae arcu non odio tincidunt tincidunt. Integer id sapien ac velit fermentum hendrerit. Suspendisse potenti. Donec non justo id augue dictum convallis. Vivamus ac neque non justo bibendum tincidunt. Sed vel sem vitae odio faucibus gravida. Phasellus id lorem ac sapien gravida aliquet.
-        </p>
-        <p>
-        Curabitur a orci vel justo luctus ullamcorper. Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed ac mauris id neque tincidunt dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer vel justo vitae libero tincidunt tincidunt.
-        </p>
-    </div>
+        <!-- Left Column: Act I Text -->
+        <div class="video-left">
+            <h2>Act I</h2>
 
-    <div class="video-container">
-        <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/jJ9vtKtilG8?si=aTHl0pMv9hq7WHww"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen></iframe>
-    </div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae arcu non odio tincidunt tincidunt. 
+                Integer id sapien ac velit fermentum hendrerit. Suspendisse potenti. Donec non justo id augue dictum 
+                convallis. Vivamus ac neque non justo bibendum tincidunt. Sed vel sem vitae odio faucibus gravida. 
+                Phasellus id lorem ac sapien gravida aliquet.
+            </p>
 
-    <div class="video-right">
-        <div class="character-card">
-            <img src="characters/Odysseus2.jpg">
-            <h3>Odysseus</h3>
+            <p>
+                Curabitur a orci vel justo luctus ullamcorper. Aliquam erat volutpat. Vestibulum ante ipsum primis in 
+                faucibus orci luctus et ultrices posuere cubilia curae; Sed ac mauris id neque tincidunt dictum. 
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+                Integer vel justo vitae libero tincidunt tincidunt.
+            </p>
         </div>
 
-        <div class="character-card">
-            <img src="characters/Athena.PNG">
-            <h3>Athena</h3>
+        <!-- Middle Column: Video -->
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/jJ9vtKtilG8?si=aTHl0pMv9hq7WHww"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
         </div>
-    </div>
 
-</div>
+        <!-- Right Column: Character Cards -->
+        <div class="video-right">
+
+            <div class="character-card">
+                <img src="characters/Odysseus2.jpg" alt="Odysseus">
+                <h3>Odysseus</h3>
+            </div>
+
+            <div class="character-card">
+                <img src="characters/Athena.PNG" alt="Athena">
+                <h3>Athena</h3>
+            </div>
+
+        </div>
+
+    </div>
 
 </body>
 </html>
