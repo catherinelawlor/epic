@@ -30,3 +30,13 @@ crewForm.addEventListener('submit', function(event) {
     // Reset form
     crewForm.reset();
 });
+
+// Interaction #3: Character Card Flip
+const cards = document.querySelectorAll('.flip-card');
+
+cards.forEach(card => {
+    card.addEventListener('click', function() {
+        // Toggle the 'is-flipped' class on click
+        card.classList.toggle('is-flipped');
+    });
+});

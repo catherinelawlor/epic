@@ -29,24 +29,56 @@
     </nav>
 
     <div class="video-page container-fluid py-5">
-        <div class="container">
-            <div class="row align-items-center">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-4 mb-4">
+                <h2 class="fw-bold">The Full Saga</h2>
+                <p>Epic is a loose musical adaptation of Homer's The Odyssey[cite: 49]. Watch the conceptual album stream below.</p>
                 
-                <div class="col-lg-5 mb-5 mb-lg-0">
-                    <h2 class="display-4 fw-bold">The Full Saga</h2>
-                    <p class="lead">Epic is a loose musical adaptation of Homer's The Odyssey. Follow Odysseus on his 10-year journey home after the Trojan War.</p>
-                    <p>Watch the conceptual album stream below to experience the story through the songs of Act I.</p>
+                <div class="mt-4">
+                    <label for="charSearch" class="form-label fw-bold">Find a Character:</label>
+                    <input type="text" id="charSearch" class="form-control" placeholder="Search (e.g. Athena)...">
                 </div>
+            </div>
 
-                <div class="col-lg-7">
-                    <div class="ratio ratio-16x9 shadow-lg rounded">
-                        <iframe src="https://www.youtube.com/embed/S2O20SAn_E0" title="Epic Musical" allowfullscreen></iframe>
+            <div class="col-lg-5 mb-4">
+                <div class="ratio ratio-16x9 shadow-lg rounded">
+                    <iframe src="https://www.youtube.com/embed/S2O20SAn_E0" title="Epic Musical" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <h3 class="mb-3">Characters</h3>
+                <div class="flip-card mb-3" data-name="odysseus">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="odysseus.jpg" alt="Odysseus" class="img-fluid rounded">
+                            <p class="mt-2 fw-bold">Odysseus</p>
+                        </div>
+                        <div class="flip-card-back p-2">
+                            <h6>The King</h6>
+                            <p class="small">Searching for his way home to Ithaca.</p>
+                        </div>
                     </div>
                 </div>
 
+                <div class="flip-card" data-name="athena">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="athena.jpg" alt="Athena" class="img-fluid rounded">
+                            <p class="mt-2 fw-bold">Athena</p>
+                        </div>
+                        <div class="flip-card-back p-2">
+                            <h6>Goddess</h6>
+                            <p class="small">The mentor and warrior of the mind.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+
+        </div> </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>

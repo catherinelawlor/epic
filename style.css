@@ -6,7 +6,8 @@ html {
 }
 body {
     min-height: 100%;
-    overflow-x: hidden; /* Prevents accidental side-scrolling */
+    overflow-x: hidden; /* Prevents accidental side-scrolling
+    transition: background-color 0.4s ease, color 0.4s ease; */
 }
 
 /* -----------------------------------------------------
@@ -23,7 +24,6 @@ body {
 ----------------------------------------------------- */
 h1 {
     font-size: 10vw;
-    color: white;
     text-shadow: 0 0 20px black;
 }
 
@@ -50,7 +50,6 @@ h1 {
    VIDEO PAGE — BACKGROUND
 ----------------------------------------------------- */
 .video-page {
-    color: white;
     margin: 0;
     min-height: 100vh;
     /* This ensures the background stays put and covers the whole view */
@@ -63,12 +62,17 @@ h1 {
 .light-mode .video-page {
     background: url("sunrise-ruins.jpg") center/cover no-repeat;
 }
-
+/* Light Mode Text (Black) */
+body.light-mode {
+    color: #1a1a1a;
+}
 /* Dark Mode */
 .dark-mode .video-page {
     background: url("sunset-ruins.jpg") center/cover no-repeat;
 }
-
+body.dark-mode {
+    color: #ffffff;
+}
 /* -----------------------------------------------------
    VIDEO PAGE LAYOUT
 ----------------------------------------------------- */
@@ -118,23 +122,56 @@ h1 {
 /* -----------------------------------------------------
    CHARACTER CARDS
 ----------------------------------------------------- */
-.character-card {
-    background: rgba(0,0,0,0.4);
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    backdrop-filter: blur(4px);
+/* Container for the flip effect */
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 350px;
+  perspective: 1000px; /* Needed for 3D effect */
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
-.character-card img {
-    width: 220px;
-    height: 300px;
-    object-fit: contain;
-    background: rgba(0,0,0,0.3);
-    padding: 10px;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto;
+/* This container holds both front and back */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* The actual flip trigger (Done via JS) */
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* Style the Front */
+.flip-card-front {
+  background: rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Style the Back (Rotated by default) */
+.flip-card-back {
+  background: #ff00ff;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* -----------------------------------------------------
@@ -173,4 +210,13 @@ h1 {
     justify-content: flex-end;
     align-items: center;
     padding-bottom: 40px;
+}
+
+/*Ensure Headings follow the mode */
+.light-mode h1, .light-mode h2, .light-mode h3, .light-mode p { 
+    color: #000000 !important; 
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p { 
+    color: #ffffff !important; 
 }
