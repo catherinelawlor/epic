@@ -3,73 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epic — Video</title>
+    <title>Epic: The Musical - Video</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+<body class="light-mode">
 
-<body class="video-page">
-
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <a href="index.html" class="nav-logo">EPIC</a>
-
-        <div class="nav-links">
-            <a href="video.html">Video</a>
-            <a href="act2.html">Act II</a>
-            <button id="modeToggle" class="mode-btn">☀ / 🌙</button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">EPIC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="video.html">Video</a></li>
+                    <li class="nav-item"><a class="nav-link" href="act2.html">Act II</a></li>
+                    <li class="nav-item">
+                        <button id="modeToggle" class="btn btn-outline-light ms-lg-3">🌙 Mode</button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- Main Layout -->
-    <div class="video-layout">
+    <div class="video-page container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <h2 class="display-4 fw-bold">The Full Saga</h2>
+                    <p class="lead">Epic is a loose musical adaptation of Homer's The Odyssey. Follow Odysseus on his 10-year journey home after the Trojan War.</p>
+                    <p>Watch the conceptual album stream below to experience the story through the songs of Act I.</p>
+                </div>
 
-        <!-- Left Column: Act I Text -->
-        <div class="video-left">
-            <h2>Act I</h2>
+                <div class="col-lg-7">
+                    <div class="ratio ratio-16x9 shadow-lg rounded">
+                        <iframe src="https://www.youtube.com/embed/S2O20SAn_E0" title="Epic Musical" allowfullscreen></iframe>
+                    </div>
+                </div>
 
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae arcu non odio tincidunt tincidunt. 
-                Integer id sapien ac velit fermentum hendrerit. Suspendisse potenti. Donec non justo id augue dictum 
-                convallis. Vivamus ac neque non justo bibendum tincidunt. Sed vel sem vitae odio faucibus gravida. 
-                Phasellus id lorem ac sapien gravida aliquet.
-            </p>
-
-            <p>
-                Curabitur a orci vel justo luctus ullamcorper. Aliquam erat volutpat. Vestibulum ante ipsum primis in 
-                faucibus orci luctus et ultrices posuere cubilia curae; Sed ac mauris id neque tincidunt dictum. 
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                Integer vel justo vitae libero tincidunt tincidunt.
-            </p>
-        </div>
-
-        <!-- Middle Column: Video -->
-        <div class="video-container">
-            <iframe 
-                src="https://www.youtube.com/embed/jJ9vtKtilG8?si=aTHl0pMv9hq7WHww"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
-            </iframe>
-        </div>
-
-        <!-- Right Column: Character Cards -->
-        <div class="video-right">
-
-            <div class="character-card">
-                <img src="characters/Odysseus2.jpg" alt="Odysseus">
-                <h3>Odysseus</h3>
             </div>
-
-            <div class="character-card">
-                <img src="characters/Athena.PNG" alt="Athena">
-                <h3>Athena</h3>
-            </div>
-
         </div>
-
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
