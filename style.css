@@ -1,10 +1,12 @@
 /* -----------------------------------------------------
    RESET
 ----------------------------------------------------- */
-html, body {
-    margin: 0;
-    padding: 0;
+html {
     height: 100%;
+}
+body {
+    min-height: 100%;
+    overflow-x: hidden; /* Prevents accidental side-scrolling */
 }
 
 /* -----------------------------------------------------
@@ -50,16 +52,11 @@ h1 {
 .video-page {
     color: white;
     margin: 0;
-    padding: 20px;
-
-    /* Make background stretch with content */
-    min-height: 100%;
-    background-size: 50% 100%;
-    background-repeat: no-repeat;
-
+    min-height: 100vh;
+    /* This ensures the background stays put and covers the whole view */
     background:
-        url("sunset-ruins.jpg") left center / 50% 100% no-repeat,
-        url("sunrise-ruins.jpg") right center / 50% 100% no-repeat;
+        url("sunset-ruins.jpg") left center / 50% 100% no-repeat fixed,
+        url("sunrise-ruins.jpg") right center / 50% 100% no-repeat fixed;
 }
 
 /* Light Mode */
@@ -77,21 +74,27 @@ h1 {
 ----------------------------------------------------- */
 .video-layout {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the whole group */
     align-items: flex-start;
-    padding: 60px;
-    min-height: 100vh;
+    gap: 20px; /* Use gap instead of margins for cleaner spacing */
+    padding: 60px 20px;
+    max-width: 1400px; /* Prevents it from getting too wide on huge monitors */
+    margin: 0 auto;    /* Centers the container itself */
 }
 
-.video-left {
-    flex: 1;
-    margin-right: 40px;
+.video-left, .video-right {
+    flex: 1; 
+    min-width: 250px; /* Prevents text from becoming a tiny sliver */
 }
 
-.video-right {
-    flex: 1;
+.video-container {
+    flex: 2; /* Gives the video more "weight" than the side columns */
+    position: relative;
+    width: 100%;
+    max-width: 800px; 
+    padding-top: 45%; /* Slightly reduced to keep it on screen */
+    margin: 0;
 }
-
 /* -----------------------------------------------------
    VIDEO CONTAINER (Responsive YouTube)
 ----------------------------------------------------- */
