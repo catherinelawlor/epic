@@ -13,30 +13,39 @@ modeBtn.addEventListener('click', () => {
     }
 });
 
-// 2. Form Processing (Requirement: JS Function handles form)
+// --- FORM LOGIC ---
 const crewForm = document.getElementById('crewForm');
 const feedback = document.getElementById('formFeedback');
 
-crewForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Stop page refresh
-    
-    const name = document.getElementById('userName').value;
-    const role = document.getElementById('userRole').value;
-    
-    // Provide dynamic feedback (DOM Manipulation)
-    feedback.innerText = `Welcome aboard, ${name} the ${role}! We set sail for Ithaca at dawn.`;
-    feedback.style.color = "green";
-    
-    // Reset form
-    crewForm.reset();
-});
+// Only run this if the form is found on the current page
+if (crewForm) {
+    crewForm.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        const name = document.getElementById('userName').value;
+        const role = document.getElementById('userRole').value;
+        
+        feedback.innerText = `Welcome aboard, ${name} the ${role}! We set sail for Ithaca at dawn.`;
+        feedback.style.color = "green";
+        crewForm.reset();
+    });
+}
 
-// Interaction #3: Character Card Flip
-const cards = document.querySelectorAll('.flip-card');
-
-cards.forEach(card => {
+// --- FLIP CARD LOGIC ---
+const allCards = document.querySelectorAll('.flip-card');
+allCards.forEach(card => {
     card.addEventListener('click', function() {
-        // Toggle the 'is-flipped' class on click
-        card.classList.toggle('is-flipped');
+        this.classList.toggle('is-flipped');
     });
 });
+
+// --- SEARCH LOGIC ---
+const searchInput = document.getElementById('charSearch');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const value = e.target.value.toLowerCase();
+        allCards.forEach(card => {
+            const charName = card.getAttribute('data-name').toLowerCase();
+            card.style.display = charName.includes(value) ? "block" : "none";
+        });
+    });
+}
