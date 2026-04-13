@@ -1,30 +1,56 @@
 /* -----------------------------------------------------
-   RESET
+   1. RESET & BASE STYLES
 ----------------------------------------------------- */
-html {
+html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
+
 body {
     min-height: 100%;
-    overflow-x: hidden; /* Prevents accidental side-scrolling
-    transition: background-color 0.4s ease, color 0.4s ease; */
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* -----------------------------------------------------
-   MOBILE LANDING
+   2. THEME MODES (Light & Dark)
 ----------------------------------------------------- */
-@media (max-width: 600px) {
-    .landing {
-        background-image: url("wallpaper-mobile.jpg");
-    }
+/* Light Mode (Default) */
+body {
+    background-color: white;
+    color: #000000;
+}
+
+/* Dark Mode Override */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+/* Global Text Colors based on Mode */
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, 
+body.dark-mode h6, body.dark-mode p, body.dark-mode label {
+    color: #ffffff !important;
+}
+
+body:not(.dark-mode) h1, body:not(.dark-mode) h2, body:not(.dark-mode) h3, 
+body:not(.dark-mode) h6, body:not(.dark-mode) p, body:not(.dark-mode) label {
+    color: #000000 !important;
 }
 
 /* -----------------------------------------------------
-   ENTER BUTTON (Landing Page)
+   3. LANDING PAGE
 ----------------------------------------------------- */
-h1 {
-    font-size: 10vw;
-    text-shadow: 0 0 20px black;
+.landing {
+    height: 100vh;
+    width: 100%;
+    background: url("wallpaper.jpg") center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 40px;
 }
 
 .enter-btn h1 {
@@ -40,176 +66,161 @@ h1 {
     text-shadow: 0 0 30px #ff00ff;
 }
 
-.enter-btn {
-    text-decoration: none;
-    position: relative;
-    z-index: 10;
+@media (max-width: 600px) {
+    .landing { background-image: url("wallpaper-mobile.jpg"); }
 }
 
 /* -----------------------------------------------------
-   VIDEO PAGE — BACKGROUND
+   4. VIDEO PAGE BACKGROUNDS
 ----------------------------------------------------- */
 .video-page {
-    margin: 0;
     min-height: 100vh;
-    /* This ensures the background stays put and covers the whole view */
     background:
         url("sunset-ruins.jpg") left center / 50% 100% no-repeat fixed,
         url("sunrise-ruins.jpg") right center / 50% 100% no-repeat fixed;
 }
 
-/* Light Mode */
 .light-mode .video-page {
-    background: url("sunrise-ruins.jpg") center/cover no-repeat;
+    background: url("sunrise-ruins.jpg") center/cover no-repeat fixed;
 }
-/* Light Mode Text (Black) */
-body.light-mode {
-    color: #1a1a1a;
-}
-/* Dark Mode */
+
 .dark-mode .video-page {
-    background: url("sunset-ruins.jpg") center/cover no-repeat;
+    background: url("sunset-ruins.jpg") center/cover no-repeat fixed;
 }
-body.dark-mode {
-    color: #ffffff;
-}
+
 /* -----------------------------------------------------
-   VIDEO PAGE LAYOUT
+    5. FLIP CARDS (Universal System)
 ----------------------------------------------------- */
-.video-layout {
-    display: flex;
-    justify-content: center; /* Center the whole group */
-    align-items: flex-start;
-    gap: 20px; /* Use gap instead of margins for cleaner spacing */
-    padding: 60px 20px;
-    max-width: 1400px; /* Prevents it from getting too wide on huge monitors */
-    margin: 0 auto;    /* Centers the container itself */
+.flip-card {
+    background-color: transparent;
+    width: 350px; /* Saga Card Size */
+    height: 350px;
+    perspective: 1000px;
+    cursor: pointer;
+    margin-bottom: 20px;
 }
 
-.video-left, .video-right {
-    flex: 1; 
-    min-width: 250px; /* Prevents text from becoming a tiny sliver */
+/* Character cards are slightly thinner than Saga cards */
+#slot1 .flip-card, #slot2 .flip-card {
+    width: 250px;
 }
 
-.video-container {
-    flex: 2; /* Gives the video more "weight" than the side columns */
+.flip-card-inner {
     position: relative;
     width: 100%;
-    max-width: 800px; 
-    padding-top: 45%; /* Slightly reduced to keep it on screen */
-    margin: 0;
-}
-/* -----------------------------------------------------
-   VIDEO CONTAINER (Responsive YouTube)
------------------------------------------------------ */
-.video-container {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    margin: 20px 0;
-    padding-top: 56.25%; /* 16:9 ratio */
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
-.video-container iframe {
+/* The Trigger - MUST have !important to override everything else */
+.flip-card.is-flipped .flip-card-inner {
+    transform: rotateY(180deg) !important;
+}
+
+.flip-card-front, .flip-card-back {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-card-front {
+    background: #f8f9fa !important;
+    border: 1px solid #ddd;
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.dark-mode .flip-card-front {
+    background: #333 !important;
+    border: 1px solid #444;
+}
+
+.flip-card-back {
+    background: #ff00ff !important;
+    color: white !important;
+    transform: rotateY(180deg);
+    z-index: 1;
+    padding: 20px;
 }
 
 /* -----------------------------------------------------
-   CHARACTER CARDS
+    6. VIDEO PAGE SLOTS (Character Stacks)
 ----------------------------------------------------- */
-/* Container for the flip effect */
-.flip-card {
-  background-color: transparent;
-  width: 250px;
-  height: 350px;
-  perspective: 1000px; /* Needed for 3D effect */
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-/* This container holds both front and back */
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-/* The actual flip trigger (Done via JS) */
-.flip-card.is-flipped .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-/* Position the front and back */
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-  border-radius: 12px;
-  padding: 20px;
-}
-
-/* Style the Front */
-.flip-card-front {
-    background-color: #f8f9fa; /* Or match your site's color */
-    border-radius: 12px;
-}
-/* Style the Back (Rotated by default) */
-.flip-card-back {
-  background: #ff00ff;
-  color: white;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Carousel Container */
-/* This is the box that holds the characters */
 .carousel-slot {
-    position: relative; /* This is the "anchor" for the cards */
+    position: relative;
     width: 100%;
-    min-height: 400px;
+    min-height: 380px;
 }
 
 .character-slide {
-    position: absolute; /* This keeps them all in the SAME spot (on top of each other) */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    opacity: 0; /* Hidden by default */
+    opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    pointer-events: none; /* Prevents clicking through to hidden cards */    
-    background-color: transparent; /* Ensure the cards don't have transparent backgrounds */
-
+    pointer-events: none;
 }
 
-/* This is what the JS toggles to show a card */
 .character-slide.active {
     opacity: 1 !important;
     pointer-events: auto !important;
-    z-index: 5; /* Puts the active one on top */
+    z-index: 5;
+}
+
+/* -----------------------------------------------------
+    7. ACT II SAGA TILES (The 3x3 Grid)
+----------------------------------------------------- */
+.saga-flip {
+    width: 350px !important;
+    height: 350px !important;
+    margin: 10px auto;
+}
+
+.saga-flip .flip-card-front img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.saga-flip .flip-card-back {
+    font-size: 0.85rem;
+    overflow-y: auto;
+    /* This ensures the back is ready to be seen */
+    background: #ff00ff !important; 
+}
+
+/* -----------------------------------------------------
+   ACT II SPECIFIC BACKGROUND (Prevents Landing Page break)
+----------------------------------------------------- */
+.act2-page.light-mode {
+    background: url("sunrise-ruins.jpg") center/cover no-repeat fixed !important;
+}
+
+.act2-page.dark-mode {
+    background: url("sunset-ruins.jpg") center/cover no-repeat fixed !important;
 }
 /* -----------------------------------------------------
-   NEXT BUTTON
+   8. UI ELEMENTS
 ----------------------------------------------------- */
 .next-btn {
     display: inline-block;
-    margin-top: 30px;
     padding: 12px 24px;
     background: #ff00ff;
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
     border-radius: 8px;
     transition: 0.2s ease;
 }
@@ -217,76 +228,4 @@ body.dark-mode {
 .next-btn:hover {
     background: #ff55ff;
     transform: scale(1.05);
-}
-
-/* -----------------------------------------------------
-   LANDING PAGE
------------------------------------------------------ */
-.landing {
-    height: 100vh;
-    width: 100%;
-    background-image: url("wallpaper.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    padding-bottom: 40px;
-}
-
-/* Ensure all headings switch correctly in light mode */
-.light-mode h1, .light-mode h2, .light-mode h3, .light-mode p, .light-mode h6 { 
-    color: #000000 !important; 
-}
-
-/* Specific styling for the Character Card title in Light Mode */
-.light-mode .flip-card-front p {
-    color: #000000 !important;
-}
-
-/* Ensure all headings switch correctly in dark mode */
-.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p, .dark-mode h6 { 
-    color: #ffffff !important; 
-}
-
-/* Specific styling for the Character Card title in Dark Mode */
-.dark-mode .flip-card-front p {
-    color: #ffffff !important;
-}
-
-/* 1. Default (Light Mode) */
-body {
-    background-color: white;
-    color: #000000 !important;
-}
-
-/* 2. Dark Mode Override */
-body.dark-mode {
-    background-color: #1a1a1a;
-    color: #ffffff !important;
-}
-
-/* 3. Force all headings and paragraphs to follow the body color */
-body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, 
-body.dark-mode h6, body.dark-mode p, body.dark-mode label {
-    color: #ffffff !important;
-}
-
-body:not(.dark-mode) h1, body:not(.dark-mode) h2, body:not(.dark-mode) h3, 
-body:not(.dark-mode) h6, body:not(.dark-mode) p, body:not(.dark-mode) label {
-    color: #000000 !important;
-}
-
-/* 4. Character Card Specific Fixes */
-.flip-card-front {
-    background: #f8f9fa; /* Light grey so it stands out from white background */
-    border: 1px solid #ddd;
-}
-
-.dark-mode .flip-card-front {
-    background: #333; /* Darker card for dark mode */
-    border: 1px solid #444;
 }
