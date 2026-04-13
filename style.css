@@ -160,10 +160,9 @@ body.dark-mode {
 
 /* Style the Front */
 .flip-card-front {
-  background: rgba(0,0,0,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
+    background-color: #f8f9fa; /* Or match your site's color */
+    border-radius: 12px;
 }
-
 /* Style the Back (Rotated by default) */
 .flip-card-back {
   background: #ff00ff;
@@ -174,6 +173,32 @@ body.dark-mode {
   justify-content: center;
 }
 
+/* Carousel Container */
+/* This is the box that holds the characters */
+.carousel-slot {
+    position: relative; /* This is the "anchor" for the cards */
+    width: 100%;
+    min-height: 400px;
+}
+
+.character-slide {
+    position: absolute; /* This keeps them all in the SAME spot (on top of each other) */
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none; /* Prevents clicking through to hidden cards */    
+    background-color: transparent; /* Ensure the cards don't have transparent backgrounds */
+
+}
+
+/* This is what the JS toggles to show a card */
+.character-slide.active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 5; /* Puts the active one on top */
+}
 /* -----------------------------------------------------
    NEXT BUTTON
 ----------------------------------------------------- */
@@ -212,11 +237,56 @@ body.dark-mode {
     padding-bottom: 40px;
 }
 
-/*Ensure Headings follow the mode */
-.light-mode h1, .light-mode h2, .light-mode h3, .light-mode p { 
+/* Ensure all headings switch correctly in light mode */
+.light-mode h1, .light-mode h2, .light-mode h3, .light-mode p, .light-mode h6 { 
     color: #000000 !important; 
 }
 
-.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p { 
+/* Specific styling for the Character Card title in Light Mode */
+.light-mode .flip-card-front p {
+    color: #000000 !important;
+}
+
+/* Ensure all headings switch correctly in dark mode */
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p, .dark-mode h6 { 
     color: #ffffff !important; 
+}
+
+/* Specific styling for the Character Card title in Dark Mode */
+.dark-mode .flip-card-front p {
+    color: #ffffff !important;
+}
+
+/* 1. Default (Light Mode) */
+body {
+    background-color: white;
+    color: #000000 !important;
+}
+
+/* 2. Dark Mode Override */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff !important;
+}
+
+/* 3. Force all headings and paragraphs to follow the body color */
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, 
+body.dark-mode h6, body.dark-mode p, body.dark-mode label {
+    color: #ffffff !important;
+}
+
+body:not(.dark-mode) h1, body:not(.dark-mode) h2, body:not(.dark-mode) h3, 
+body:not(.dark-mode) h6, body:not(.dark-mode) p, body:not(.dark-mode) label {
+    color: #000000 !important;
+}
+
+/* 4. Character Card Specific Fixes */
+.flip-card-front {
+    background: #f8f9fa; /* Light grey so it stands out from white background */
+    border: 1px solid #ddd;
+}
+
+.dark-mode .flip-card-front {
+    background: #333; /* Darker card for dark mode */
+    border: 1px solid #444;
 }
