@@ -84,3 +84,58 @@ if (crewForm) {
         crewForm.reset();
     });
 }
+
+// --- SEARCH HELPERS: CLEAR & SHOW ALL ---
+const clearBtn = document.getElementById('clearSearch');
+const showAllBtn = document.getElementById('showAllBtn');
+const allCharsList = document.getElementById('allCharsList');
+
+if (searchInput) {
+    // 1. CLEAR BUTTON LOGIC
+    if (clearBtn) {
+        // Show/Hide 'Clear' based on typing
+        searchInput.addEventListener('input', () => {
+            clearBtn.style.display = searchInput.value.length > 0 ? "inline-block" : "none";
+        });
+
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = "";
+            clearBtn.style.display = "none";
+            allCharsList.style.display = "none";
+            searchInput.dispatchEvent(new Event('input')); // Reset characters
+        });
+    }
+
+    // 2. SHOW ALL & ALPHABETICAL LIST LOGIC
+    if (showAllBtn && allCharsList) {
+        showAllBtn.addEventListener('click', () => {
+            if (allCharsList.style.display === "flex") {
+                allCharsList.style.display = "none";
+            } else {
+                const allSlides = document.querySelectorAll('.character-slide');
+                let names = Array.from(allSlides).map(s => s.getAttribute('data-name'));
+                
+                // Unique & Alphabetical Sort
+                names = [...new Set(names)].sort((a, b) => a.localeCompare(b));
+                
+                // Build Vertical Clickable List
+                allCharsList.innerHTML = names.map(name => 
+                    `<div class="search-item" onclick="selectCharacter('${name}')">${name}</div>`
+                ).join('');
+                
+                allCharsList.style.display = "flex";
+                allCharsList.style.flexDirection = "column";
+            }
+        });
+    }
+}
+
+// 3. SELECTION FUNCTION (Make items clickable)
+window.selectCharacter = function(name) {
+    if (searchInput) {
+        searchInput.value = name;
+        allCharsList.style.display = "none";
+        // Update the display immediately
+        searchInput.dispatchEvent(new Event('input'));
+    }
+};

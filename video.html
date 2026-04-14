@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="light-mode">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -16,7 +17,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="video.html">Video</a></li>
                     <li class="nav-item"><a class="nav-link" href="act2.html">Act II</a></li>
@@ -30,29 +31,42 @@
 
     <div class="video-page container-fluid py-5">
     <div class="container">
-        <div class="row">
+        <div class="row align-items-start">
             
-            <div class="col-lg-4 mb-4">
+            <div class="col-lg-3 mb-4 video-left">
                 <h2 class="fw-bold">The Full Saga</h2>
-                <p>Epic is a loose musical adaptation of Homer's The Odyssey[cite: 49]. Watch the conceptual album stream below.</p>
-                
-                <div class="mt-4">
-                    <label for="charSearch" class="form-label fw-bold">Find a Character:</label>
-                    <input type="text" id="charSearch" class="form-control" placeholder="Search (e.g. Athena)...">
+                <p class="small">
+                    EPIC is a loose musical adaptation of Homer’s <em>The Odyssey</em>. 
+                    Created by Jorge Rivera-Herrans, this conceptual masterpiece has garnered 
+                    over 500 million downloads, bringing ancient Greek mythology into the modern era.
+                </p>
+
+                <div class="search-wrapper mt-4">
+                    <label for="charSearch" class="form-label fw-bold small">Find a Character:</label>
+                    <div class="input-group excel-style-bar shadow-sm">
+                        <input type="text" id="charSearch" class="form-control border-0 small" placeholder="Search...">
+                        <button id="showAllBtn" class="btn btn-light border-start" type="button">All</button>
+                        <button id="clearSearch" class="btn btn-light border-start" type="button" style="display: none;">X</button>
+                    </div>
+                    <div id="allCharsList" class="search-dropdown shadow" style="display: none;"></div>
                 </div>
             </div>
 
-            <div class="col-lg-5 mb-4">
-                <div class="ratio ratio-16x9 shadow-lg rounded">
-                    <iframe src="https://www.youtube.com/embed/S2O20SAn_E0" title="Epic Musical" allowfullscreen></iframe>
+            <div class="col-lg-6 mb-4">
+                <div class="ratio ratio-16x9 shadow-lg rounded bg-dark">
+                    <iframe src="https://www.youtube.com/embed/S2O20SAn_E0" 
+                            title="EPIC: The Musical - Full Concept Album" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen></iframe>
                 </div>
             </div>
 
-<div class="col-lg-3">
-    <h3 class="mb-3 text-center">Meet the Crew</h3>
-    
-    <div class="d-flex flex-column gap-4">
-        
+            <div class="col-lg-3">
+                <h3 class="mb-4 text-center">Meet the Crew</h3>
+                <div class="d-flex flex-column gap-4">
+
+  
         <div id="slot1" class="carousel-slot position-relative" style="min-height: 380px;">
             <div class="character-slide active" data-name="odysseus">
                 <div class="flip-card mx-auto">
@@ -400,9 +414,18 @@
                     </div>
                 </div>
             </div>
-        </div> </div> </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+        </div> </div> </div> </div> </div> </div> </div> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+        <p class="mb-1"><strong>EPIC: The Musical</strong> Fan Project</p>
+        <p class="small text-secondary mb-0">
+            Created by Jorge Rivera-Herrans. Based on Homer's <em>The Odyssey</em>.
+        </p>
+        <p class="small text-secondary">
+            &copy; 2026 - Educational Web Design Project
+        </p>
+    </div>
+</footer>
 </body>
 </html>

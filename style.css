@@ -212,20 +212,73 @@ body:not(.dark-mode) h6, body:not(.dark-mode) p, body:not(.dark-mode) label {
 .act2-page.dark-mode {
     background: url("sunset-ruins.jpg") center/cover no-repeat fixed !important;
 }
-/* -----------------------------------------------------
-   8. UI ELEMENTS
------------------------------------------------------ */
-.next-btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background: #ff00ff;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.2s ease;
+/* --- 8. UI ELEMENTS & SEARCH FIXES --- */
+
+.video-left {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 20px;
+    color: inherit; /* Ensures it follows Light/Dark mode */
 }
 
-.next-btn:hover {
-    background: #ff55ff;
-    transform: scale(1.05);
+.search-wrapper {
+    position: relative; /* CRITICAL: This is the anchor for the dropdown */
+    max-width: 500px;
+}
+
+.excel-style-bar {
+    background: white !important;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 45px;
+}
+
+.search-dropdown {
+    position: absolute;
+    top: 100%; /* Glues it to the bottom of the bar */
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 9999;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ced4da;
+    border-top: none;
+    display: none; /* Controlled by JS */
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.search-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    color: #333 !important;
+    text-align: left;
+    cursor: pointer;
+}
+
+.search-item:hover {
+    background-color: #f1f1f1;
+}
+
+footer {
+    border-top: 3px solid #ff00ff;
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-top: 50px;
+}
+
+/* Fix for background-bleed on Act 2 ruins */
+.act2-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* This pushes the footer to the absolute bottom if the content is short */
+footer {
+    margin-top: auto;
 }
