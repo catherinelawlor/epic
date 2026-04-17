@@ -1,0 +1,370 @@
+Project Documentation 
+GitHub repository URL
+https://github.com/catherinelawlor/epic
+Public URL
+https://catherinelawlor.github.io/epic/index.html
+
+Project Concept and Planning
+The aim of this project was to design and develop an interactive website inspired by EPIC: The Musical, focusing on its characters, themes, and music. 
+The site is composed of clearly structured pages with consistent navigation, responsive layout, and multiple interactive components. Accessibility and usability were considered throughout development to ensure the website can be used across devices and by users with different needs.
+Features
+The project includes the following features and components:
+•	Responsive navigation bar using Bootstrap 5.3.x
+•	Character carousel layout displaying multiple characters
+•	Custom flip card components with CSS animations
+•	JavaScript driven character selection and filtering
+•	Dark/light mode toggle using JavaScript
+•	Embedded Spotify album players using <iframe> elements
+•	Custom CSS layered on top of Bootstrap for theming
+•	GitHub Pages hosting for live deployment
+ 
+Design Decisions
+The development process began with planning the site layout and identifying where interactivity would add value. The same layout was chosen across pages to improve usability and navigation. Bootstrap was used to support a responsive design while still allowing custom styling through CSS.
+JavaScript was used to for interactivity. Event listeners handle user actions like clicking buttons, selecting characters, changing display modes and updating content. DOM manipulation was used to show and hide elements, update inputs, and control visual components without page reloads.
+Biome was used to identify improvements in both JavaScript style and HTML accessibility.
+
+ 
+Wireframes
+Desktop landing page 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+Desktop Video Page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+Desktop Act II
+
+ 
+
+ 
+Media Landing page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+Media Video Page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+Media Act II
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+Testing
+Testing was carried out throughout development using both manual and automated tools.
+Manual Testing
+•	Navigation tested across desktop and mobile screen sizes
+•	JavaScript interactions tested for expected behaviour
+•	Forms tested with valid and invalid input
+•	Interactive elements tested for responsiveness and usability
+Accessibility Testing
+•	Embedded iframes updated with descriptive title attributes
+•	Button elements updated with explicit type="button"
+•	Semantic HTML used to improve screen reader support
+Lighthouse (Chrome DevTools)
+•	Performance, accessibility and best practice audits were run
+•	Identified contrast and semantic issues were resolved (where time allowed)
+Biome Linting Tool
+Biome was used via the terminal to check formatting, accessibility and code quality. This process identified HTML structure issues, accessibility improvements, and JavaScript style suggestions. Critical findings were addressed, optional (yellow) warnings were reviewed but not required to be fully resolved. (Going forward I will run Biome earlier in the process to see where I am not using the most efficient code)
+ 
+
+Desktop lighthouse score
+
+
+
+
+
+Mobile lighthouse Score
+
+
+
+
+
+
+Title	Severity	Description	Resolved
+Biome	Severe	Provide more detailed descriptive attributes	Y
+Lighthouse	Moderate	Inconsistent images used for character cards	N
+YT Video	Severe	Youtube video links re-embedded multiple times due to videos being removed	Y
+Low Contrast	Moderate	Contrast is poor and I don’t have time to fix it	N
+Issues 
+
+Future Work
+I would like to have a lot more content in my website and for it to be more “balanced” aesthetically. I’d like my code to be a lot cleaner. 
+Going forward I really need to look at Lighthouse and Biome as an ongoing process and not just at the end. 
+
+
+
+
+
+Project Documentation 
+GitHub repository URL
+https://github.com/catherinelawlor/epic
+Public URL
+https://catherinelawlor.github.io/epic/index.html
+
+Project Concept and Planning
+The aim of this project was to design and develop an interactive website inspired by EPIC: The Musical, focusing on its characters, themes, and music. 
+The site is composed of clearly structured pages with consistent navigation, responsive layout, and multiple interactive components. Accessibility and usability were considered throughout development to ensure the website can be used across devices and by users with different needs.
+Features
+The project includes the following features and components:
+•	Responsive navigation bar using Bootstrap 5.3.x
+•	Character carousel layout displaying multiple characters
+•	Custom flip card components with CSS animations
+•	JavaScript driven character selection and filtering
+•	Dark/light mode toggle using JavaScript
+•	Embedded Spotify album players using <iframe> elements
+•	Custom CSS layered on top of Bootstrap for theming
+•	GitHub Pages hosting for live deployment
+ 
+Design Decisions
+The development process began with planning the site layout and identifying where interactivity would add value. The same layout was chosen across pages to improve usability and navigation. Bootstrap was used to support a responsive design while still allowing custom styling through CSS.
+JavaScript was used to for interactivity. Event listeners handle user actions like clicking buttons, selecting characters, changing display modes and updating content. DOM manipulation was used to show and hide elements, update inputs, and control visual components without page reloads.
+Biome was used to identify improvements in both JavaScript style and HTML accessibility.
+
+ 
+Wireframes
+Desktop landing page 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+Desktop Video Page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+Desktop Act II
+
+ 
+
+ 
+Media Landing page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+Media Video Page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+Media Act II
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+Testing
+Testing was carried out throughout development using both manual and automated tools.
+Manual Testing
+•	Navigation tested across desktop and mobile screen sizes
+•	JavaScript interactions tested for expected behaviour
+•	Forms tested with valid and invalid input
+•	Interactive elements tested for responsiveness and usability
+Accessibility Testing
+•	Embedded iframes updated with descriptive title attributes
+•	Button elements updated with explicit type="button"
+•	Semantic HTML used to improve screen reader support
+Lighthouse (Chrome DevTools)
+•	Performance, accessibility and best practice audits were run
+•	Identified contrast and semantic issues were resolved (where time allowed)
+Biome Linting Tool
+Biome was used via the terminal to check formatting, accessibility and code quality. This process identified HTML structure issues, accessibility improvements, and JavaScript style suggestions. Critical findings were addressed, optional (yellow) warnings were reviewed but not required to be fully resolved. (Going forward I will run Biome earlier in the process to see where I am not using the most efficient code)
+ 
+
+Desktop lighthouse score
+
+
+
+
+
+Mobile lighthouse Score
+
+
+
+
+
+
+Title	Severity	Description	Resolved
+Biome	Severe	Provide more detailed descriptive attributes	Y
+Lighthouse	Moderate	Inconsistent images used for character cards	N
+YT Video	Severe	Youtube video links re-embedded multiple times due to videos being removed	Y
+Low Contrast	Moderate	Contrast is poor and I don’t have time to fix it	N
+Issues 
+
+Future Work
+I would like to have a lot more content in my website and for it to be more “balanced” aesthetically. I’d like my code to be a lot cleaner. 
+Going forward I really need to look at Lighthouse and Biome as an ongoing process and not just at the end. 
+
+
+
+
+
